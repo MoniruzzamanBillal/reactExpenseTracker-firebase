@@ -1,10 +1,10 @@
 import "./App.css";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
     <>
-      DFJISDJVN
-      <h1>jdf</h1>
+      <Navbar />
     </>
   );
 }
