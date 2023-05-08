@@ -1,6 +1,8 @@
 import React from "react";
+import { GlobalContext } from "./Context";
 
 export default function DataShow() {
+  const { save } = GlobalContext();
   return (
     <>
       <div className="DataContainer w-10/12 m-auto p-1 mb-2">
@@ -13,7 +15,7 @@ export default function DataShow() {
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
                 Your Balance
               </h5>
-              <p class="font-normal text-xl text-gray-800 ">100 taka</p>
+              <p class="font-normal text-xl text-gray-800 ">{save} taka</p>
             </a>
           </div>
         </div>

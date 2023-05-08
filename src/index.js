@@ -5,12 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "remixicon/fonts/remixicon.css";
 import { BrowserRouter } from "react-router-dom";
+import { AppProvider } from "./Components/Context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AppProvider>
+        <App />
+      </AppProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

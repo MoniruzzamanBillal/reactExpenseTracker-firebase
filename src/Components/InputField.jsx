@@ -1,6 +1,8 @@
 import React from "react";
+import { GlobalContext } from "./Context";
 
 export default function InputField() {
+  const { inc, exp, setInc, setExp, onUpdateClick } = GlobalContext();
   return (
     <>
       <div className="inputFieldContainer mb-1 w-10/12 m-auto ">
@@ -8,7 +10,7 @@ export default function InputField() {
           <div className="section2 w-1/2">
             <div className="incomeSection mb-4">
               <label
-                for="first_name"
+                htmlFor="first_name"
                 className="block mb-1 text-3xl font-medium text-black"
               >
                 Income
@@ -18,13 +20,15 @@ export default function InputField() {
                 id="first_name"
                 className="bg-gray-50 border-none outline-none text-gray-900 text-sm rounded-sm block w-11/12 p-2.5 "
                 placeholder="Income"
+                value={inc}
+                onChange={(e) => setInc(e.target.value)}
                 required
               />
             </div>
 
             <div className="ExpenseSection">
               <label
-                for="first_name"
+                htmlFor="first_name"
                 className="block mb-1 text-3xl font-medium text-black"
               >
                 Expense
@@ -34,9 +38,18 @@ export default function InputField() {
                 id="first_name"
                 className="bg-gray-50 border-none outline-none text-gray-900 text-sm rounded-sm block w-11/12 p-2.5 "
                 placeholder="Income"
+                value={exp}
+                onChange={(e) => setExp(e.target.value)}
                 required
               />
             </div>
+
+            <button
+              className="py-2.5 mt-2 px-5 mr-2 mb-2 text-sm font-medium text-gray-900  bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 "
+              onClick={() => onUpdateClick()}
+            >
+              Update
+            </button>
           </div>
         </div>
       </div>
