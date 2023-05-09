@@ -6,9 +6,10 @@ import { GlobalContext } from "./Context";
 
 export default function Navbar() {
   const { signInGoogle, isAuth, logOut } = GlobalContext();
+
   return (
     <>
-      {/* navBar starts */}
+      {/* /* navBar starts */}
       <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="https://flowbite.com/" className="flex items-center">
@@ -84,9 +85,23 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      {/* nabBar ends  */}
-
+      {/* //nabBar ends */}
       {isAuth && (
+        <>
+          <div className="routesComponents bg-red-400 pt-24">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/history" element={<History />} />
+            </Routes>
+          </div>
+        </>
+      )}
+    </>
+  );
+}
+
+{
+  /* {isAuth && (
         <>
           <div className="routesComponents bg-red-400 pt-24">
             <Routes>
@@ -95,7 +110,5 @@ export default function Navbar() {
             </Routes>
           </div>{" "}
         </>
-      )}
-    </>
-  );
+      )} */
 }

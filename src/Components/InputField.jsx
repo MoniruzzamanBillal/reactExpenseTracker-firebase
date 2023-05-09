@@ -2,7 +2,15 @@ import React from "react";
 import { GlobalContext } from "./Context";
 
 export default function InputField() {
-  const { inc, exp, setInc, setExp, onUpdateClick } = GlobalContext();
+  const {
+    inc,
+    exp,
+    setInc,
+    setExp,
+    onUpdateClick,
+    setSelectedDate,
+    selectedDate,
+  } = GlobalContext();
   return (
     <>
       <div className="inputFieldContainer mb-1 w-10/12 m-auto ">
@@ -23,10 +31,11 @@ export default function InputField() {
                 value={inc}
                 onChange={(e) => setInc(e.target.value)}
                 required
+                onWheel={(e) => e.target.blur()}
               />
             </div>
 
-            <div className="ExpenseSection">
+            <div className="ExpenseSection mb-4">
               <label
                 htmlFor="first_name"
                 className="block mb-1 text-3xl font-medium text-black"
@@ -41,6 +50,23 @@ export default function InputField() {
                 value={exp}
                 onChange={(e) => setExp(e.target.value)}
                 required
+                onWheel={(e) => e.target.blur()}
+              />
+            </div>
+
+            <div className="Date mb-4">
+              <label
+                htmlFor="date"
+                className="block mb-1 text-2xl font-medium text-black"
+              >
+                Date
+              </label>
+              <input
+                type="date"
+                id="date"
+                className="bg-gray-50 border-none outline-none text-gray-900 text-sm rounded-sm block w-11/12 p-2.5 "
+                onChange={(e) => setSelectedDate(e.target.value)}
+                value={selectedDate}
               />
             </div>
 

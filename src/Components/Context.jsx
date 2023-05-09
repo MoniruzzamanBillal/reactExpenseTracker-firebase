@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-
-import { signInWithPopup, signOut } from "firebase/auth";
+import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 import {
   Auth,
   GoogleSignProvider,
@@ -21,20 +20,29 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [data, setData] = useState([]);
-  const [recentINCO, setRecentIn] = useState("");
-  const [recentEXPE, setRecentEx] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
   const [isAuth, setIsAuth] = useState(false);
   const [inc, setInc] = useState();
   const [exp, setExp] = useState();
+  const [currentUser, setCurrentUser] = useState({});
+
   let sav;
   let inco;
   let expe;
+  let timeZONE;
   let saving;
   const msgReference = collection(DataBase, "transactions");
 
-  //   console.log(Auth.currentUser.uid);
+  useEffect(() => {
+    const unsub = onAuthStateChanged(Auth, (user) => {
+      setCurrentUser(user);
+    });
+    return () => {
+      unsub();
+    };
+  }, []);
+
   const signInGoogle = async () => {
-    // console.log("Sign in button click");
     try {
       const result = await signInWithPopup(Auth, GoogleSignProvider);
       setIsAuth(true);
@@ -45,7 +53,6 @@ const AppProvider = ({ children }) => {
   // google sign in function ends
 
   // log out starts
-
   const logOut = async () => {
     console.log("logout click");
     try {
@@ -59,34 +66,30 @@ const AppProvider = ({ children }) => {
 
   //   sending data to firebase
   const onUpdateClick = async () => {
-    if (inc === undefined || exp === undefined) {
+    if (inc === undefined || exp === undefined || selectedDate === null) {
       alert("You are lazy!!! enter proper value.");
       return;
     } else {
-      setRecentIn(inc);
-      setRecentEx(exp);
       sav = inc - exp;
 
-      console.log(inc);
-      console.log(exp);
-      console.log(typeof inc);
-      const { uid } = Auth.currentUser;
+      const { uid, displayName } = Auth.currentUser;
       await addDoc(msgReference, {
+        name: displayName,
         income: inc,
         expense: exp,
         saving: sav,
+        date: selectedDate,
         uid,
         timespan: serverTimestamp(),
       });
-
       setInc(" ");
       setExp(" ");
+      setSelectedDate(null); // Reset the date input value
     }
   };
   //   sending data to firebase ends
 
   // getting data from firebase
-
   useEffect(() => {
     const FilterData = query(msgReference, orderBy("timespan"));
     const unscribe = onSnapshot(FilterData, (ele) => {
@@ -95,22 +98,29 @@ const AppProvider = ({ children }) => {
         message.push({ ...doc.data(), id: doc.id });
       });
 
-      setData(message);
-      //   console.log(message);
+      let idMatchMsg = [];
+      if (currentUser !== null) {
+        message.map((ele) => {
+          if (ele.uid === currentUser.uid) {
+            idMatchMsg.push(ele);
+          }
+        });
+        setData(idMatchMsg);
+      }
     });
 
     return () => unscribe;
-  }, []);
+  }, [data, currentUser]);
 
   inco = data.map((ele) => ele.income);
   expe = data.map((ele) => ele.expense);
   saving = data.map((ele) => ele.saving);
+  timeZONE = data.map((ele) => ele.date);
+
   let i;
   let save = 0;
   for (i = 0; i < saving.length; i++) {
     save += saving[i];
-    // console.log(saving[i]);
-    // console.log(save);
   }
 
   let addSize = inco.length;
@@ -119,14 +129,11 @@ const AppProvider = ({ children }) => {
   let recentAdd = inco[addSize - 1];
   let recentExp = expe[expSize - 1];
 
-  //   console.log(inco);
-  //   console.log(expe);
-  //   console.log(saving);
-  //   console.log(recentAdd);
-
   return (
     <AppContext.Provider
       value={{
+        data,
+        timeZONE,
         logOut,
         isAuth,
         recentAdd,
@@ -137,8 +144,8 @@ const AppProvider = ({ children }) => {
         saving,
         inc,
         exp,
-        recentINCO,
-        recentEXPE,
+        setSelectedDate,
+        selectedDate,
         setInc,
         setExp,
         onUpdateClick,
