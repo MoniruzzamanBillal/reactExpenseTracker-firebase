@@ -13,7 +13,7 @@ export default function InputField() {
   } = GlobalContext();
   return (
     <>
-      <div className="inputFieldContainer mb-1 w-1/2 m-auto ">
+      <div className="inputFieldContainer mob:w-11/12 md:w-10/12 lg:w-1/2  mb-1 w-1/2 m-auto ">
         <div className="inputFieldWrapper m-auto bg-gray-200 border border-gray-200 rounded-sm shadow  flex justify-center">
           <div className="section2 w-11/12">
             <div className="incomeSection mb-4 pt-6">
