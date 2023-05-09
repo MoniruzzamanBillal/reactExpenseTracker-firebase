@@ -6,7 +6,7 @@ export default function RecentAdd() {
   return (
     <>
       <div className="recentAddContainer w-10/12 m-auto mb-4">
-        <div className="recentAddWrapper  border border-black flex justify-center">
+        <div className="recentAddWrapper flex justify-center">
           <div className="section2 w-1/2">
             <a
               href="#"

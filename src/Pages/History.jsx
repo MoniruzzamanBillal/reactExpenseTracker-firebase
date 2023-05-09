@@ -2,55 +2,63 @@ import React from "react";
 import { GlobalContext } from "../Components/Context";
 
 export default function History() {
-  const { inco, expe, timeZONE, data } = GlobalContext();
+  const { inco, expe, timeZONE } = GlobalContext();
   return (
     <>
-      <div className="detailsContainer bg-violet-400">
-        <div className="detailsWrapper p-3 m-auto w-10/12 bg-green-400">
-          <h1 className="bg-yellow-200 mb-3  text-3xl text-center p-2 font-bold">
-            History
-          </h1>
-          <div className="details grid grid-cols-2 gap-2 bg-slate-400 w-10/12 m-auto">
-            <div className="incomeHistory border border-black bg-pink-300">
-              <h1 className="bg-red-300 text-2xl text-center p-1 font-bold">
-                Income
-              </h1>
-              <ul className="p-2 flex justify-center">
-                <li className="bg-blue-500 mb-2 ">
-                  <div className="liContainer grid grid-cols-2 gap-3 bg-gray-400">
-                    <div className="liLeft bg-red-500">
-                      {timeZONE.map((ele) => (
-                        <h1> {ele}</h1>
-                      ))}
+      <div className="detailsContainer bg-slate-100">
+        <div className="detailsWrapper p-3 m-auto w-10/12 ">
+          <h1 className="mb-3  text-4xl text-center p-2 font-bold">History</h1>
+          <div className="details grid grid-cols-2 gap-2 w-10/12 m-auto">
+            <div className="incomeHistory border border-black ">
+              <a
+                href="#"
+                class="block  p-3 bg-white border border-gray-200 rounded-sm shadow hover:bg-gray-100 text-center"
+              >
+                <h1 className=" text-2xl text-center p-1 font-bold">Income</h1>
+                <ul className="p-2 flex justify-center">
+                  <li className=" mb-2 ">
+                    <div className="liContainer grid grid-cols-2 ">
+                      <div className="liLeft ">
+                        {timeZONE.map((ele) => (
+                          <h1 className="text-xl font-bold"> {ele} : </h1>
+                        ))}
+                      </div>
+                      <div className="liRight w-10/12">
+                        {inco &&
+                          inco.map((ele) => (
+                            <p className="text-xl font-normal ">{ele} taka</p>
+                          ))}
+                      </div>
                     </div>
-                    <div className="liRight bg-blue-600">
-                      {inco && inco.map((ele) => <p>{ele} taka</p>)}
-                    </div>
-                  </div>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </a>
             </div>
-            <div className="ExpenseHistory border border-black bg-blue-200">
-              <h1 className="bg-blue-200 text-2xl text-center p-1 font-bold">
-                Expense
-              </h1>
-              <ul className="p-2 flex justify-center">
-                <li className="bg-blue-500 mb-2 ">
-                  <div className="liContainer grid grid-cols-2 gap-3 bg-gray-400">
-                    <div className="liLeft bg-red-500">
-                      {timeZONE.map((ele) => (
-                        <h1> {ele}</h1>
-                      ))}
-                    </div>
-                    <div className="liRight bg-blue-600">
-                      {expe && expe.map((ele) => <p>{ele} taka</p>)}
-                    </div>
-                  </div>
-                </li>
 
-                {/* {expe &&
-                  expe.map((ele) => <li>8 - may - 2023 - {ele} taka</li>)} */}
-              </ul>
+            <div className="ExpenseHistory border border-black bg-blue-200">
+              <a
+                href="#"
+                class="block  p-3 bg-white border border-gray-200 rounded-sm shadow hover:bg-gray-100 text-center"
+              >
+                <h1 className=" text-2xl text-center p-1 font-bold">Expense</h1>
+                <ul className="p-2 flex justify-center">
+                  <li className=" mb-2 ">
+                    <div className="liContainer grid grid-cols-2 ">
+                      <div className="liLeft ">
+                        {timeZONE.map((ele) => (
+                          <h1 className="text-xl font-bold"> {ele} : </h1>
+                        ))}
+                      </div>
+                      <div className="liRight w-10/12">
+                        {expe &&
+                          expe.map((ele) => (
+                            <p className="text-xl font-normal ">{ele} taka</p>
+                          ))}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </a>
             </div>
           </div>
         </div>

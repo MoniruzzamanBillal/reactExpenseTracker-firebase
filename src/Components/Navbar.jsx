@@ -88,7 +88,7 @@ export default function Navbar() {
       {/* //nabBar ends */}
       {isAuth && (
         <>
-          <div className="routesComponents bg-red-400 pt-24">
+          <div className="routesComponents bg-gray-50 h-full pt-24">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/history" element={<History />} />
@@ -98,17 +98,4 @@ export default function Navbar() {
       )}
     </>
   );
-}
-
-{
-  /* {isAuth && (
-        <>
-          <div className="routesComponents bg-red-400 pt-24">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/history" element={<History />} />
-            </Routes>
-          </div>{" "}
-        </>
-      )} */
 }

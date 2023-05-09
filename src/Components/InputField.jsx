@@ -13,13 +13,13 @@ export default function InputField() {
   } = GlobalContext();
   return (
     <>
-      <div className="inputFieldContainer mb-1 w-10/12 m-auto ">
-        <div className="inputFieldWrapper m-auto bg-orange-400  border border-black flex justify-center">
-          <div className="section2 w-1/2">
-            <div className="incomeSection mb-4">
+      <div className="inputFieldContainer mb-1 w-1/2 m-auto ">
+        <div className="inputFieldWrapper m-auto bg-gray-200 border border-gray-200 rounded-sm shadow  flex justify-center">
+          <div className="section2 w-11/12">
+            <div className="incomeSection mb-4 pt-6">
               <label
                 htmlFor="first_name"
-                className="block mb-1 text-3xl font-medium text-black"
+                className="block mb-2 text-3xl font-medium text-black"
               >
                 Income
               </label>
@@ -38,7 +38,7 @@ export default function InputField() {
             <div className="ExpenseSection mb-4">
               <label
                 htmlFor="first_name"
-                className="block mb-1 text-3xl font-medium text-black"
+                className="block mb-2 text-3xl font-medium text-black"
               >
                 Expense
               </label>
@@ -57,7 +57,7 @@ export default function InputField() {
             <div className="Date mb-4">
               <label
                 htmlFor="date"
-                className="block mb-1 text-2xl font-medium text-black"
+                className="block mb-2 text-2xl font-medium text-black"
               >
                 Date
               </label>

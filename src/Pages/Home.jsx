@@ -6,7 +6,7 @@ import RecentAdd from "../Components/RecentAdd";
 export default function Home() {
   return (
     <>
-      <div className="homeContainer w-10/12 m-auto bg-green-300 border border-black">
+      <div className="homeContainer bg-slate-100 w-10/12 m-auto ">
         <DataShow />
         <RecentAdd />
         <InputField />

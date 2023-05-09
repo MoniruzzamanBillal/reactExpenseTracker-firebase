@@ -6,7 +6,7 @@ export default function DataShow() {
   return (
     <>
       <div className="DataContainer w-10/12 m-auto p-1 mb-2">
-        <div className="dataWrapper border border-black flex justify-center">
+        <div className="dataWrapper  flex justify-center">
           <div className="section1 w-1/3">
             <a
               href="#"
