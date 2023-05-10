@@ -1,0 +1,155 @@
+.NavParentContainer {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  margin: auto;
+}
+
+.navContainer {
+  margin: auto;
+  width: 100%;
+  line-height: 60px;
+  box-shadow: rgba(134, 134, 244, 0.75) 0px 50px 100px -20px,
+    rgba(247, 84, 84, 0.5) 0px 30px 60px -30px;
+}
+
+.NavWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 a {
+  cursor: pointer;
+}
+
+.middle {
+  width: 22%;
+  position: relative;
+}
+.Menu {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.Menu_links {
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.navRight {
+  display: flex;
+  justify-content: space-around;
+  padding-right: 5px;
+}
+
+.changeTheme {
+  display: block;
+  cursor: pointer;
+}
+
+.HamBurgerMenu {
+  display: none;
+  font-size: 24px;
+  width: 42px;
+  height: 56px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* media query for responsiveness  */
+
+@media (max-width: 860px) {
+  .Menu {
+    background: #0e2431;
+    display: none;
+    width: 30vw;
+    padding: 20px 0;
+    margin-left: 200%;
+    position: absolute;
+    left: 60%;
+    top: 30px;
+    transform: translate(50%, 0%);
+    transition: all 0.5s;
+  }
+
+  .light-theme .Menu {
+    background: #bddbf5;
+  }
+
+  .Menu.MobileMenuLink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .light-theme.MobileMenuLink {
+    display: block;
+  }
+
+  .HamBurgerMenu {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 530px) {
+  .navContainer {
+    width: 100%;
+    line-height: 35px;
+  }
+
+  .HamBurgerMenu {
+    width: 38px;
+    height: 38px;
+  }
+
+  .Menu {
+    width: 30vw;
+    left: 60%;
+    top: 19px;
+    transform: translate(50%, 0%);
+  }
+
+  .changeTheme {
+    font-size: 0.8rem;
+  }
+  .changeTheme i {
+    margin-right: 2px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 431px) {
+  .navContainer {
+    line-height: 22px;
+  }
+
+  .logo h1 a {
+    font-size: 1.5rem;
+  }
+  .navRight {
+    width: 75%;
+    margin: auto;
+    align-items: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .Menu {
+    width: 30vw;
+    left: 76%;
+    top: 19px;
+    transform: translate(50%, 0%);
+  }
+}
+
+@media (max-width: 349px) {
+  .Menu {
+    width: 35vw;
+  }
+}

@@ -13,7 +13,7 @@ export default function History() {
             <div className="incomeHistory mob:w-10/12 md:w-full m-auto border border-black ">
               <a
                 href="#"
-                className="block  mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-sm shadow hover:bg-gray-100 text-center"
+                className="block max-h-60 overflow-auto mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-sm shadow hover:bg-gray-100 text-center"
               >
                 <h1 className=" text-2xl text-center p-1 font-bold">Income</h1>
                 <ul className="p-2 flex justify-center">
@@ -43,7 +43,7 @@ export default function History() {
             <div className="ExpenseHistory mob:w-10/12 md:w-full m-auto border border-black ">
               <a
                 href="#"
-                className="block  mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-sm shadow hover:bg-gray-100 text-center"
+                className="block max-h-60 overflow-auto mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-sm shadow hover:bg-gray-100 text-center"
               >
                 <h1 className=" text-2xl text-center p-1 font-bold">Expense</h1>
                 <ul className="p-2 flex justify-center">

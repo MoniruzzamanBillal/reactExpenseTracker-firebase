@@ -33,6 +33,20 @@ const AppProvider = ({ children }) => {
   let saving;
   const msgReference = collection(DataBase, "transactions");
 
+  // navbar
+  const [theme, changeTheme] = useState("light-theme");
+
+  function ToggleTheme() {
+    console.log("theme click");
+    return theme === " " ? changeTheme("light-theme") : changeTheme(" ");
+  }
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  // navbar ends
+
   useEffect(() => {
     const unsub = onAuthStateChanged(Auth, (user) => {
       setCurrentUser(user);
@@ -132,6 +146,8 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        theme,
+        ToggleTheme,
         data,
         timeZONE,
         logOut,
