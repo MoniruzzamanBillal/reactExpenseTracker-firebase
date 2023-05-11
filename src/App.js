@@ -1,12 +1,14 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import Test from "./Components/Test";
+
+import TestNav from "./Components/TestNav";
 
 function App() {
   return (
     <>
       {/* <Navbar /> */}
-      <Test />
+
+      <TestNav />
     </>
   );
 }
