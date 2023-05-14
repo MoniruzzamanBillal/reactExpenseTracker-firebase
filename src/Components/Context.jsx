@@ -139,10 +139,13 @@ const AppProvider = ({ children }) => {
 
   let addSize = inco.length;
   let expSize = expe.length;
+  let dateSize = timeZONE.length;
+  let savingSize = saving.length;
 
   let recentAdd = inco[addSize - 1];
   let recentExp = expe[expSize - 1];
-
+  let recentDate = timeZONE[dateSize - 1];
+  let recentSaving = saving[savingSize - 1];
   return (
     <AppContext.Provider
       value={{
@@ -154,6 +157,8 @@ const AppProvider = ({ children }) => {
         isAuth,
         recentAdd,
         recentExp,
+        recentDate,
+        recentSaving,
         save,
         inco,
         expe,

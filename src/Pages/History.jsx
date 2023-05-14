@@ -26,10 +26,10 @@ export default function History() {
                           </h1>
                         ))}
                       </div>
-                      <div className="liRight  w-10/12">
+                      <div className="liRight self-center w-10/12">
                         {inco &&
                           inco.map((ele) => (
-                            <p className="mob:text-base md:text-xl text-xl font-normal self-center ">
+                            <p className=" mob:text-base md:text-xl text-xl font-normal self-center ">
                               {ele} taka
                             </p>
                           ))}
@@ -49,7 +49,7 @@ export default function History() {
                 <ul className="p-2 flex justify-center">
                   <li className=" mb-2 ">
                     <div className="liContainer grid grid-cols-2 ">
-                      <div className="liLeft ">
+                      <div className="liLeft self-center">
                         {timeZONE.map((ele) => (
                           <h1 className="mob:text-base sm:text-xl text-xl  font-bold">
                             {ele} :

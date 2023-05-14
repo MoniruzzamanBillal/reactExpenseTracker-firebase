@@ -46,7 +46,7 @@ export default function InputField() {
                 type="number"
                 id="first_name"
                 className="bg-gray-50 border-none outline-none text-gray-900 text-sm rounded-sm block w-11/12 p-2.5 "
-                placeholder="Income"
+                placeholder="Expense"
                 value={exp}
                 onChange={(e) => setExp(e.target.value)}
                 required
