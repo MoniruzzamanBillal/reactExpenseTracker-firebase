@@ -10,10 +10,10 @@ export default function History() {
           <h1 className="mb-3  text-4xl text-center p-2 font-bold">History</h1>
 
           <div className="details grid  mob:grid-cols-1 mob:w-full sm:grid-cols-1 md:grid-cols-2 sm:w-11/12 grid-cols-2 gap-2 lg:w-10/12 m-auto">
-            <div className="incomeHistory mob:w-10/12 md:w-full m-auto border border-black ">
+            <div className="incomeHistory mob:w-10/12 md:w-full m-auto ">
               <a
                 href="#"
-                className="block max-h-60 overflow-auto mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-sm shadow hover:bg-gray-100 text-center"
+                className="block max-h-60 overflow-auto mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-md shadow-lg hover:bg-gray-50 text-center"
               >
                 <h1 className=" text-2xl text-center p-1 font-bold">Income</h1>
                 <ul className="p-2 flex justify-center">
@@ -40,10 +40,10 @@ export default function History() {
               </a>
             </div>
 
-            <div className="ExpenseHistory mob:w-10/12 md:w-full m-auto border border-black ">
+            <div className="ExpenseHistory mob:w-10/12 md:w-full m-auto ">
               <a
                 href="#"
-                className="block max-h-60 overflow-auto mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-sm shadow hover:bg-gray-100 text-center"
+                className="block max-h-60 overflow-auto mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-md shadow-lg hover:bg-gray-50 text-center"
               >
                 <h1 className=" text-2xl text-center p-1 font-bold">Expense</h1>
                 <ul className="p-2 flex justify-center">

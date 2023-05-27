@@ -1,21 +1,38 @@
 import React from "react";
 import { GlobalContext } from "./Context";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 export default function DataShow() {
-  const { save } = GlobalContext();
+  const { save, savingDays } = GlobalContext();
+
   return (
     <>
       <div className="DataContainer mob:w-full sm:w-11/12 md:w-10/12 lg:w-1/2 w-11/12 m-auto p-1 mb-2">
         <div className="dataWrapper  flex justify-center">
-          <div className="section1 mob:bg-blue-300 mob:w-full sm:bg-red-900 m-auto w-1/3">
+          <div className="section1 mob:w-full m-auto w-1/3">
             <a
               href="#"
-              className="block w-full p-3 m-auto bg-white border border-gray-200 rounded-sm shadow hover:bg-gray-100 text-center"
+              className="block w-full p-2 m-auto bg-white border border-gray-200 rounded-md shadow-md hover:bg-gray-50 text-center text-green-700"
             >
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                Your Balance
+              <h5 className="mb-1 text-2xl font-bold tracking-tight">
+                Your Saving
               </h5>
-              <p class="font-normal text-xl text-gray-800 ">{save} taka</p>
+              {/* top starts  */}
+              <div className="topContainer">
+                <p className="text-2xl font-semibold flex justify-center items-center ">
+                  {save}
+                  <span>
+                    <TbCurrencyTaka />
+                  </span>
+                </p>
+              </div>
+              {/* top ends  */}
+
+              {/* bottom starts  */}
+              <div className="bottomContainer text-blue-600 p-1">
+                <p> In {savingDays} days </p>
+              </div>
+              {/* bottom ends  */}
             </a>
           </div>
         </div>

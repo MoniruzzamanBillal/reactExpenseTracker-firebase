@@ -137,6 +137,8 @@ const AppProvider = ({ children }) => {
     save += saving[i];
   }
 
+  let savingDays = saving.length;
+
   let addSize = inco.length;
   let expSize = expe.length;
   let dateSize = timeZONE.length;
@@ -149,6 +151,7 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        savingDays,
         theme,
         ToggleTheme,
         data,
