@@ -26,6 +26,16 @@ const AppProvider = ({ children }) => {
   const [exp, setExp] = useState();
   const [currentUser, setCurrentUser] = useState({});
 
+  const [selected, setSelected] = useState("");
+
+  const handleDateChange = (event) => {
+    const inputDate = new Date(event.target.value);
+    const options = { day: "numeric", month: "short", year: "numeric" };
+    const formattedDate = inputDate.toLocaleDateString("en-GB", options);
+
+    setSelected(formattedDate);
+  };
+
   let sav;
   let inco;
   let expe;
@@ -56,6 +66,7 @@ const AppProvider = ({ children }) => {
     };
   }, []);
 
+  // google sign in function starts
   const signInGoogle = async () => {
     try {
       const result = await signInWithPopup(Auth, GoogleSignProvider);
@@ -80,7 +91,7 @@ const AppProvider = ({ children }) => {
 
   //   sending data to firebase
   const onUpdateClick = async () => {
-    if (inc === undefined || exp === undefined || selectedDate === null) {
+    if (inc === undefined || exp === undefined || selected === null) {
       alert("You are lazy!!! enter proper value.");
       return;
     } else {
@@ -92,7 +103,7 @@ const AppProvider = ({ children }) => {
         income: inc,
         expense: exp,
         saving: sav,
-        date: selectedDate,
+        date: selected,
         uid,
         timespan: serverTimestamp(),
       });
@@ -105,7 +116,8 @@ const AppProvider = ({ children }) => {
 
   // getting data from firebase
   useEffect(() => {
-    const FilterData = query(msgReference, orderBy("timespan"));
+    // const FilterData = query(msgReference, orderBy("timespan"));
+    const FilterData = query(msgReference, orderBy("timespan", "desc")); // Add "desc" to sort from newest to oldest
     const unscribe = onSnapshot(FilterData, (ele) => {
       let message = [];
       ele.forEach((doc) => {
@@ -144,13 +156,20 @@ const AppProvider = ({ children }) => {
   let dateSize = timeZONE.length;
   let savingSize = saving.length;
 
-  let recentAdd = inco[addSize - 1];
-  let recentExp = expe[expSize - 1];
-  let recentDate = timeZONE[dateSize - 1];
-  let recentSaving = saving[savingSize - 1];
+  // let recentAdd = inco[addSize - 1];
+  // let recentExp = expe[expSize - 1];
+  // let recentDate = timeZONE[dateSize - 1];
+  // let recentSaving = saving[savingSize - 1];
+
+  let recentAdd = inco[0];
+  let recentExp = expe[0];
+  let recentDate = timeZONE[0];
+  let recentSaving = saving[0];
   return (
     <AppContext.Provider
       value={{
+        handleDateChange,
+        selected,
         savingDays,
         theme,
         ToggleTheme,

@@ -7,7 +7,7 @@ export default function History() {
     <>
       <div className="detailsContainer bg-slate-100">
         <div className="detailsWrapper p-3 m-auto w-10/12 ">
-          <h1 className="mb-3  text-4xl text-center p-2 font-bold">History</h1>
+          <h1 className="mb-4 text-4xl text-center p-2 font-bold">History</h1>
 
           <div className="details grid  mob:grid-cols-1 mob:w-full sm:grid-cols-1 md:grid-cols-2 sm:w-11/12 grid-cols-2 gap-2 lg:w-10/12 m-auto">
             <div className="incomeHistory mob:w-10/12 md:w-full m-auto ">
@@ -15,7 +15,9 @@ export default function History() {
                 href="#"
                 className="block max-h-60 overflow-auto mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-md shadow-lg hover:bg-gray-50 text-center"
               >
-                <h1 className=" text-2xl text-center p-1 font-bold">Income</h1>
+                <h1 className=" text-2xl text-center p-1 font-bold text-green-700">
+                  Income
+                </h1>
                 <ul className="p-2 flex justify-center">
                   <li className=" mb-2 ">
                     <div className="liContainer grid grid-cols-2 ">
@@ -45,11 +47,13 @@ export default function History() {
                 href="#"
                 className="block max-h-60 overflow-auto mob:p-1 sm:p-3 m-auto p-3 bg-white border border-gray-200 rounded-md shadow-lg hover:bg-gray-50 text-center"
               >
-                <h1 className=" text-2xl text-center p-1 font-bold">Expense</h1>
+                <h1 className=" text-2xl text-center p-1 font-bold text-red-600">
+                  Expense
+                </h1>
                 <ul className="p-2 flex justify-center">
                   <li className=" mb-2 ">
                     <div className="liContainer grid grid-cols-2 ">
-                      <div className="liLeft self-center">
+                      <div className="liLeft self-center ">
                         {timeZONE.map((ele) => (
                           <h1 className="mob:text-base sm:text-xl text-xl  font-bold">
                             {ele} :

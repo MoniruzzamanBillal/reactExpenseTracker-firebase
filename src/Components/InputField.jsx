@@ -10,11 +10,13 @@ export default function InputField() {
     onUpdateClick,
     setSelectedDate,
     selectedDate,
+    handleDateChange,
+    selected,
   } = GlobalContext();
   return (
     <>
       <div className="inputFieldContainer mob:w-11/12 md:w-10/12 lg:w-1/2  mb-1 w-1/2 m-auto ">
-        <div className="inputFieldWrapper m-auto bg-gray-200 border border-gray-200 rounded-md shadow-md  flex justify-center">
+        <div className="inputFieldWrapper m-auto bg-slate-300 border border-gray-200 rounded-lg shadow-lg  flex justify-center">
           <div className="section2 w-11/12">
             <div className="incomeSection mb-4 pt-6">
               <label
@@ -61,12 +63,12 @@ export default function InputField() {
               >
                 Date
               </label>
+
               <input
                 type="date"
                 id="date"
                 className="bg-gray-50 border-none outline-none text-gray-900 text-sm rounded-sm block w-11/12 p-2.5 "
-                onChange={(e) => setSelectedDate(e.target.value)}
-                value={selectedDate}
+                onChange={handleDateChange}
               />
             </div>
 

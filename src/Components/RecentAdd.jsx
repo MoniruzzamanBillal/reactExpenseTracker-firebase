@@ -3,7 +3,8 @@ import { GlobalContext } from "./Context";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 export default function RecentAdd() {
-  const { recentAdd, recentExp, recentDate, recentSaving } = GlobalContext();
+  const { recentAdd, recentExp, recentDate, recentSaving, selected } =
+    GlobalContext();
   return (
     <>
       <div className="recentAddContainer md:w-10/12 lg:w-1/2  w-11/12 m-auto mb-4">
@@ -13,12 +14,12 @@ export default function RecentAdd() {
               href="#"
               className="block w-full p-3 m-auto bg-white border border-gray-200 rounded-md shadow-lg hover:bg-gray-50 text-center"
             >
-              <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 ">
+              <h5 class="mb-4 text-3xl text-center font-semibold tracking-tight text-gray-900 ">
                 Recent transaction
               </h5>
 
               {/* date starts  */}
-              <div className="date p-1 border-y-2 border-gray-200">
+              <div className="date p-1 border-b-2 border-gray-200">
                 <p class="font-normal text-xl mb-2 text-gray-800 ">
                   <span className="font-bold"> Date = </span> {recentDate}
                 </p>
